@@ -28,7 +28,7 @@ t_y = np.arange(t[0]+t[0], t[-1]+t[-1]+dt, dt)[:len(y)]
 
 # --- Gráficos generales ---
 plt.figure(figsize=(10,7))
-plt.subplot(3,1,1); plt.plot(t, cuadrada_n);      plt.title('x(t): cuadrada periódica (0–1)');       plt.grid(True)
+plt.subplot(3,1,1); plt.plot(t, cuadrada_n);      plt.title('x(t): cuadrada(0–1)');       plt.grid(True)
 plt.subplot(3,1,2); plt.plot(t, x_exp_dec); plt.title('h(t): e^{-t}[u(t)-u(t-1)]');            plt.grid(True)
-plt.subplot(3,1,3); plt.plot(t_y, y);       plt.title('y(t) = x * h (lineal, con bordes)');    plt.grid(True)
+plt.subplot(3,1,3); plt.plot(t_y, y);       plt.title('y(t) = x * h ');    plt.grid(True)
 plt.tight_layout(); plt.show()

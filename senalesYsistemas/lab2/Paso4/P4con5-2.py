@@ -9,20 +9,19 @@ T_total = 3.0
 t = np.arange(0, T_total, dt)
 f = 5  # Hz
 
-# Entrada periódica (como en Paso 1)
-cuadrada  = signal.square(2*np.pi*f*t)   # [-1,1]
-cuadrada_n = (cuadrada + 1)/2                  # [0,1]
-x = cuadrada_n
 
-# Escalón unitario
+tri = signal.sawtooth(2*np.pi*f*t, width=0.5)    # [-1,1]
+tri_n = (tri+1)/2                  # [0,1]  <<— igual que en Paso 1
+x = tri_n
+
+
 u = lambda x: np.where(x >= 0, 1, 0)
 
-# Ejemplo base (exp. decreciente por un tramo):
-h = np.exp(-t) * (u(t) - u(t - 1))
-# =======================================================================
 
-# Corrimiento (reconstruye h con (t - tau) en tu fórmula)
-tau = 0.3  # segundos
+h = np.exp(t) * (u(t) - u(t - 1))
+
+# Corrimiento (reconstruye h con (t - tau))
+tau = 2  # segundos
 h_tau = np.exp(-(t - tau)) * (u(t - tau) - u(t - tau - 1))  # <- mismo patrón que h, pero con (t - tau)
 
 # Convoluciones

@@ -25,7 +25,7 @@ fig, axs = plt.subplots(5, 1, figsize=(8, 10))
 
 axs[0].plot(t, x_exp_dec); axs[0].set_title("Exponencial Decreciente")
 axs[1].plot(t, x_exp_cre); axs[1].set_title("Exponencial Creciente")
-axs[2].stem(t, x_delta, use_line_collection=True, basefmt=" ", markerfmt='ro', linefmt='r-')
+axs[2].stem(t, x_delta, basefmt=" ", markerfmt='ro', linefmt='r-')
 axs[2].set_title("Impulso δ(t) (aproximación)")
 axs[3].plot(t, x_escalon); axs[3].set_title("Escalón unitario u(t)")
 axs[4].plot(t, x_sinc); axs[4].set_title("Función sinc(x)/x")

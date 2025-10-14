@@ -29,16 +29,3 @@ plt.subplot(3,1,1); plt.plot(t, cuadrada_n);      plt.title('x(t): cuadrada peri
 plt.subplot(3,1,2); plt.plot(t, x_exp_dec); plt.title('h(t): e^{-t}[u(t)-u(t-1)]');            plt.grid(True)
 plt.subplot(3,1,3); plt.plot(t_y, y);       plt.title('y(t) = x * h (lineal, con bordes)');    plt.grid(True)
 plt.tight_layout(); plt.show()
-
-# --- Muestra el régimen (se parecerá al “anterior” esperado) ---
-period = 1.0 / f
-inicio = 1.0               # descarta ~1 s por el soporte de h
-fin    = inicio + 1.0      # mira ~1 s en el centro
-mask = (t_y >= inicio) & (t_y <= fin)
-
-plt.figure(figsize=(10,3))
-plt.plot(t_y[mask], y[mask])
-plt.title('y(t) en régimen (zona central, sin efectos de borde)')
-plt.grid(True)
-plt.show()
-

@@ -18,7 +18,7 @@ x = tri_n
 u = lambda x: np.where(x >= 0, 1, 0)
 
 
-h = np.exp(t) * (u(t) - u(t - 1))
+h = np.exp(-t) * (u(t) - u(t - 1))
 
 # Corrimiento (reconstruye h con (t - tau))
 tau = 2  # segundos
@@ -31,7 +31,7 @@ t_y   = np.arange(t[0]+t[0], t[-1]+t[-1] + dt, dt)[:len(y)]
 
 # Gráficas Generales
 plt.figure(figsize=(11,7))
-plt.subplot(3,1,1); plt.plot(t, x);              plt.title('x(t): cuadrada 0–1'); plt.grid(True)
+plt.subplot(3,1,1); plt.plot(t, x);              plt.title('x(t): triangular 0–1'); plt.grid(True)
 plt.subplot(3,1,2); plt.plot(t, h, label='h');   plt.plot(t, h_tau, '--', label='h_τ=h(t-τ)'); plt.legend(); plt.grid(True)
 plt.subplot(3,1,3); plt.plot(t_y, y, label='y'); plt.plot(t_y, y_tau, '--', label='y_τ');      plt.legend(); plt.grid(True)
 plt.tight_layout(); plt.show()

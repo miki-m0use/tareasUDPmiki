@@ -2,18 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# === Parámetros (mismo estilo), solo más duración para evitar bordes ===
+# Parámetros
 fs = 1000
 dt = 1/fs
 T_total = 3.0                      # > 1 s para ver régimen
 t = np.arange(0, T_total, dt)
 f = 5                              # Hz (mismo que antes)
 
-# === Señal periódica cuadrada como en tus pasos (0..1) ===
+
 cuadrada  = signal.square(2*np.pi*f*t)   # [-1,1]
 cuadrada_n = (cuadrada + 1)/2                  # [0,1]  <<— igual que en Paso 1
 
-# === Escalón unitario como en tus pasos ===
+# Escalón unitario
 u = lambda x: np.where(x >= 0, 1, 0)
 
 

@@ -18,8 +18,7 @@ x_delta = np.where(np.isclose(t, 0, atol=2e-3), 1, 0)
 x_escalon = u(t)
 
 # 5. Sinc: sin(x)/x (usamos np.sinc que ya normaliza como sin(pi x)/(pi x))
-x_sinc = np.sinc(t)
-
+x_sinc = np.sinc(t/np.pi)
 # --- Graficar ---
 fig, axs = plt.subplots(5, 1, figsize=(8, 10))
 

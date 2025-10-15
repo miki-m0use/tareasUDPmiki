@@ -22,7 +22,7 @@ h = np.exp(t) * (u(t) - u(t - 1))
 
 # Corrimiento (reconstruye h con (t - tau))
 tau = 2  # segundos
-h_tau = np.exp(-(t - tau)) * (u(t - tau) - u(t - tau - 1))  # <- mismo patrón que h, pero con (t - tau)
+h_tau = np.exp((t - tau)) * (u(t - tau) - u(t - tau - 1))  # <- mismo patrón que h, pero con (t - tau)
 
 # Convoluciones
 y     = np.convolve(x, h,     mode='full') * dt
